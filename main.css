@@ -100,9 +100,9 @@ body{
     font-size: 37px;
     font-weight: 700;
     position: absolute;
-    top: 36%;
+    top: 35%;
     opacity: 1;
-    animation: winP linear 1s;
+    animation: winP ease 1s;
 }
 /* @keyframes winP{
     0%{
