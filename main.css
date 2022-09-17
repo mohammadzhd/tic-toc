@@ -1,0 +1,114 @@
+*, *::after , *::before {
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    background: linear-gradient(to right, rgb(36, 36, 36) , grey);
+}
+
+.board{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: repeat(3 , auto);
+}
+.cell{
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    border: 1px solid grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+
+
+.cell.x::before ,
+.cell.x::after ,
+.board.x .cell:not(.x):not(.o):hover::before,
+.board.x .cell:not(.x):not(.o):hover::after
+{
+    content: '';
+    width: 20px;
+    height: 100%;
+    position: absolute;
+    background-color: whitesmoke;
+}
+
+.board.x .cell:not(.x):not(.o):hover::before,
+.board.x .cell:not(.x):not(.o):hover::after{
+    background-color: grey;
+}
+
+.cell.x::before,
+.board.x .cell:hover::before
+{
+    transform: rotate(45deg);
+}
+
+.cell.x::after,
+.board.x .cell:hover::after
+{
+    transform: rotate(-45deg);
+}
+
+.cell.o::before,
+.board.o .cell:not(.x):not(.o):hover::before {
+    content: '';
+    width: 95%;
+    height: 95%;
+    position: absolute;
+    border-radius: 50%;
+    border: 18px solid whitesmoke;
+    background-color: black;
+}
+
+.board.o .cell:not(.x):not(.o):hover::before{
+    border-color: grey;
+}
+
+.cell.x,
+.cell.o {
+    cursor: not-allowed;
+}
+
+
+
+/* winner boxes */
+.winBack{
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.765);
+    display: none;
+}
+.winBack p {
+    color: white;
+    font-size: 100px;
+    font-weight: 700;
+    animation: winP forwards 1s;
+}
+@keyframes winP{
+    0%{
+        font-size: 130px;
+        font-weight: 900;
+    }
+    100%{
+        font-size: 40px;
+        font-weight: 700;
+    }
+}
+
