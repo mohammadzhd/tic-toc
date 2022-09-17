@@ -92,14 +92,15 @@ body{
     display: flex;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.765);
-    display: none;
+    
     
 }
 .winBack p {
     color: white;
     font-size: 37px;
     font-weight: 700;
-    margin-top: 19%;
+    position: absolute;
+    top: 36%;
     opacity: 1;
     animation: winP linear 1s;
 }
@@ -114,7 +115,7 @@ body{
 
 @keyframes winP{
     0%{
-        margin-top: 0px;
+        top: 0px;
         opacity: 0;
         
     }
